@@ -84,4 +84,9 @@ plt.xscale("log")
 plt.yscale("log")
 plt.title('Theoretical vs Measured Memory Usage in FFT Convolution')
 plt.legend()
-plt.show()
+
+
+# Adjust layout for better readability
+plt.tight_layout()
+plt.subplots_adjust(top=0.95)
+plt.savefig('memory_fft.png', dpi=300)
