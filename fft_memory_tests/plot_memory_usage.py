@@ -7,7 +7,7 @@ import glob
 
 def theoretical_memory_1d(n1):
     padded_length = 2 * n1 - 1
-    fft_length = math.ceil((2 * n1 - 1) / 2) + 1
+    fft_length = np.ceil((2 * n1 - 1) / 2) + 1
 
     input_signal_size = 2 * padded_length
     fft_buffers_size = 2 * fft_length
@@ -21,7 +21,7 @@ def theoretical_memory_1d(n1):
 def theoretical_memory_2d(n1, n2):
     padded_size_1 = 2 * n1 - 1
     padded_size_2 = 2 * n2 - 1
-    fft_size_2 = math.ceil((2 * n2 - 1) / 2) + 1
+    fft_size_2 = np.ceil((2 * n2 - 1) / 2) + 1
 
     input_matrix_size = 2 * padded_size_1 * padded_size_2
     fft_buffers_size = 2 * padded_size_1 * fft_size_2
@@ -36,7 +36,7 @@ def theoretical_memory_3d(n1, n2, n3):
     padded_size_1 = 2 * n1 - 1
     padded_size_2 = 2 * n2 - 1
     padded_size_3 = 2 * n3 - 1
-    fft_size_3 = math.ceil((2 * n3 - 1) / 2) + 1
+    fft_size_3 = np.ceil((2 * n3 - 1) / 2) + 1
 
     input_tensor_size = 2 * padded_size_1 * padded_size_2 * padded_size_3
     fft_buffers_size = 2 * padded_size_1 * padded_size_2 * fft_size_3
