@@ -1,0 +1,169 @@
+# Python ignores
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+# Usually these files are written by a python script from a template
+# before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+doc/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+# According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+# However, in case you choose to ignore it, uncomment the below line.
+# Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# C++ ignores
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.ipdb
+*.pdb
+*.pydevd_frame_cache*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+
+# CLion specific ignores
+cmake-build-debug/
+cmake-build-release/
+cmake-build-relwithdebinfo/
+cmake-build-minsizerel/
+
+# CodeLite specific ignores
+*.tags
+
+# Qt-specific
+*.qmake.stash
+*.pro.user*
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CMakeLists.txt.user
+
+# Other build systems
+_Make/
+build.ninja
+.ninja_log
+.ninja_deps
+.lock-wscript
+.waf3-2.0.19-acefd902a9d40e7d784af2a42e03cd09/
+.waf-2.0.19-acefd902a9d40e7d784af2a42e03cd09/
+cscope.files
+cscope.in.out
+cscope.out
+cscope.po.out
+.tags
+
+# Backup files
+*~
+
+# JetBrains related files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+
+# Scalene files
+*/scalene/*.json
+
+# MacOs
+*.DS_Store
