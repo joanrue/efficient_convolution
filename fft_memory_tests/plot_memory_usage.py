@@ -5,7 +5,7 @@ import glob
 
 # Function to calculate theoretical memory usage
 
-def theoretical_peak_memory_1d(n1):
+def theoretical_memory_1d(n1):
     padded_length = 2 * n1 - 1
     fft_length = math.ceil((2 * n1 - 1) / 2) + 1
 
@@ -18,7 +18,7 @@ def theoretical_peak_memory_1d(n1):
 
     return total_memory_mb
 
-def theoretical_peak_memory_2d(n1, n2):
+def theoretical_memory_2d(n1, n2):
     padded_size_1 = 2 * n1 - 1
     padded_size_2 = 2 * n2 - 1
     fft_size_2 = math.ceil((2 * n2 - 1) / 2) + 1
@@ -32,7 +32,7 @@ def theoretical_peak_memory_2d(n1, n2):
 
     return total_memory_mb
 
-def theoretical_peak_memory_3d(n1, n2, n3):
+def theoretical_memory_3d(n1, n2, n3):
     padded_size_1 = 2 * n1 - 1
     padded_size_2 = 2 * n2 - 1
     padded_size_3 = 2 * n3 - 1
