@@ -4,32 +4,48 @@ import numpy as np
 import glob
 
 # Function to calculate theoretical memory usage
-def theoretical_memory_1d(n1):
-    # return (8 * n1 * 3 * 8) / (1024 * 1024)  # in MiB
-    # return (2 * n1 * 8 + 2 * (n1 // 2 + 1) * 16 + n1 * 8) / (1024 * 1024)  # in MiB
-    # Refined model
-    initial_signals = 2 * n1
-    fft_buffers = n1 + (n1 // 2 + 1)
-    total_memory = initial_signals + fft_buffers
-    return total_memory * 8 / (1024 ** 2)  # Convert to MB
 
-def theoretical_memory_2d(n1, n2):
-    # return (14 * n1 * n2 * 8) / (1024 * 1024)  # in MiB
-    # return (2 * n1 * n2 * 8 + 2 * n1 * (n2 // 2 + 1) * 16 + n1 * n2 * 8) / (1024 * 1024)  # in MiB
-    # Refined model
-    initial_signals = 2 * n1 * n2
-    fft_buffers = 2 * (n1 * (n2 // 2 + 1))
-    total_memory = initial_signals + fft_buffers
-    return total_memory * 8 / (1024 ** 2)  # Convert to MB
+def theoretical_peak_memory_1d(n1):
+    padded_length = 2 * n1 - 1
+    fft_length = math.ceil((2 * n1 - 1) / 2) + 1
 
-def theoretical_memory_3d(n1, n2, n3):
-    # return (26 * n1 * n2 * n3 * 8) / (1024 * 1024)  # in MiB
-    # return (2 * n1 * n2 * n3 * 8 + 2 * n1 * n2 * (n3 // 2 + 1) * 16 + n1 * n2 * n3 * 8) / (1024 * 1024)  # in MiB
-    # Refined model
-    initial_signals = 2 * n1 * n2 * n3
-    fft_buffers = 2 * (n1 * n2 * (n3 // 2 + 1))
-    total_memory = initial_signals + fft_buffers
-    return total_memory * 8 / (1024 ** 2)  # Convert to MB
+    input_signal_size = 2 * padded_length
+    fft_buffers_size = 2 * fft_length
+    ifft_result_size = padded_length
+
+    total_memory = input_signal_size + fft_buffers_size + ifft_result_size
+    total_memory_mb = total_memory * 8 / 1024**2
+
+    return total_memory_mb
+
+def theoretical_peak_memory_2d(n1, n2):
+    padded_size_1 = 2 * n1 - 1
+    padded_size_2 = 2 * n2 - 1
+    fft_size_2 = math.ceil((2 * n2 - 1) / 2) + 1
+
+    input_matrix_size = 2 * padded_size_1 * padded_size_2
+    fft_buffers_size = 2 * padded_size_1 * fft_size_2
+    ifft_result_size = padded_size_1 * padded_size_2
+
+    total_memory = input_matrix_size + fft_buffers_size + ifft_result_size
+    total_memory_mb = total_memory * 8 / 1024**2
+
+    return total_memory_mb
+
+def theoretical_peak_memory_3d(n1, n2, n3):
+    padded_size_1 = 2 * n1 - 1
+    padded_size_2 = 2 * n2 - 1
+    padded_size_3 = 2 * n3 - 1
+    fft_size_3 = math.ceil((2 * n3 - 1) / 2) + 1
+
+    input_tensor_size = 2 * padded_size_1 * padded_size_2 * padded_size_3
+    fft_buffers_size = 2 * padded_size_1 * padded_size_2 * fft_size_3
+    ifft_result_size = padded_size_1 * padded_size_2 * padded_size_3
+
+    total_memory = input_tensor_size + fft_buffers_size + ifft_result_size
+    total_memory_mb = total_memory * 8 / 1024**2
+
+    return total_memory_mb
 
 # Read JSON files
 files = glob.glob("scalene/scalene_profile_n*.json")
